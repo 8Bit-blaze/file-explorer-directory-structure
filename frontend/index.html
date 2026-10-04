@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>File Explorer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <header class="top-header">
+
+        <div class="brand">
+            <span class="brand-icon">📁</span>
+            <span class="brand-name">File Explorer</span>
+        </div>
+
+        <div class="header-actions">
+
+            <button
+                id="theme-toggle"
+                class="header-button"
+                title="Toggle theme"
+            >
+                ◐
+            </button>
+
+            <button
+                id="dark-toggle"
+                class="header-button"
+                title="Toggle dark mode"
+            >
+                ☾
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <div class="app-layout">
+
+
+
+        <aside class="sidebar">
+
+            <div class="sidebar-heading">
+                FILE SYSTEM
+            </div>
+
+            <nav
+                id="sidebar-tree"
+                class="sidebar-navigation"
+            >
+                Loading...
+            </nav>
+
+        </aside>
+
+
+
+        <main class="main-content">
+
+
+
+            <section class="toolbar">
+
+                <div class="toolbar-actions">
+
+                    <button
+                        id="new-folder-btn"
+                        class="toolbar-button"
+                    >
+                        📁 New Folder
+                    </button>
+
+                    <button
+                        id="new-file-btn"
+                        class="toolbar-button"
+                    >
+                        📄 New File
+                    </button>
+
+                    <button
+                        id="upload-file-btn"
+                        class="toolbar-button"
+                    >
+                        ⬆ Upload File
+                    </button>
+
+                    <button
+                        id="delete-btn"
+                        class="toolbar-button"
+                    >
+                        🗑 Delete
+                    </button>
+
+                    <button
+                        id="rename-btn"
+                        class="toolbar-button"
+                    >
+                        ✎ Rename
+                    </button>
+
+                </div>
+
+
+                <div class="search-container">
+
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="Search..."
+                    >
+
+                    <button
+                        id="search-btn"
+                        class="search-button"
+                    >
+                        🔍 Search
+                    </button>
+
+                </div>
+
+
+                <input
+                    type="file"
+                    id="file-upload-input"
+                    hidden
+                >
+
+            </section>
+
+
+            <section class="workspace">
+
+
+                <section class="tree-panel">
+
+                    <div class="panel-header">
+
+                        <h2>Files</h2>
+
+                        <span
+                            id="current-path"
+                            class="current-path"
+                        >
+                            /root
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="tree-container"
+                        class="tree-container"
+                    >
+                        Loading...
+                    </div>
+
+                </section>
+
+
+
+                <aside class="right-panel">
+
+
+                 
+
+                    <section class="card selected-card">
+
+                        <div class="card-header">
+                            <h2>Selected Item</h2>
+                        </div>
+
+                        <div
+                            id="selected-info"
+                            class="selected-info"
+                        >
+                            Nothing selected
+                        </div>
+
+                    </section>
+
+
+               
+
+                    <section class="card editor-card">
+
+                        <div class="card-header">
+                            <h2>File Editor</h2>
+                        </div>
+
+
+                        <div
+                            id="editor-file-name"
+                            class="editor-file-name"
+                        >
+                            No file selected
+                        </div>
+
+
+                        <textarea
+                            id="file-content"
+                            placeholder="File content..."
+                            disabled
+                        ></textarea>
+
+
+                        <div class="editor-buttons">
+
+                            <button
+                                id="save-file-btn"
+                                class="save-button"
+                                disabled
+                            >
+                                💾 Save File
+                            </button>
+
+                            <button
+                                id="close-file-btn"
+                                class="close-button"
+                                disabled
+                            >
+                                ✕ Close File
+                            </button>
+
+                        </div>
+
+                    </section>
+
+
+
+                    <section class="card storage-card">
+
+                        <div class="card-header">
+                            <h2>Storage</h2>
+                        </div>
+
+
+                        <div class="storage-bar">
+
+                            <div
+                                id="storage-progress"
+                                class="storage-progress"
+                            ></div>
+
+                        </div>
+
+
+                        <p id="storage-info">
+                            Loading...
+                        </p>
+
+                    </section>
+
+                </aside>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+{
+    "name": "root",
+    "type": "folder",
+    "children": [
+        {
+            "name": "My Documents",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "My Projects",
+                    "type": "folder",
+                    "children": [
+                        {
+                            "name": "hello.txt",
+                            "type": "file",
+                            "content": "Hello World!\nThis is my File Explorer project.\nwow",
+                            "size": 50
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "home",
+            "type": "folder",
+            "children": [
+                {
+                    "name": "Abtme.txt",
+                    "type": "file",
+                    "content": "Hi i am siddharth i am a student of thakur college of engineering and technology i love myself",
+                    "size": 94
+                }
+            ]
+        }
+    ]
+}
