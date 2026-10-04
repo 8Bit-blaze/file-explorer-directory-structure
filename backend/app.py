@@ -11,15 +11,33 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 app = Flask(__name__)
 CORS(app)
 
-UPLOAD_FOLDER = os.path.join(BASE_DIR, "uploads")
+if os.environ.get("VERCEL") == "1":
+    UPLOAD_FOLDER = "/tmp/file-explorer-uploads"
+    STORAGE_FILE = "/tmp/file-explorer-storage.json"
 
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-STORAGE_FILE = os.path.join(BASE_DIR, "storage.json")
+    if not os.path.exists(STORAGE_FILE):
+        with open(
+            os.path.join(BASE_DIR, "storage.json"),
+            "r",
+            encoding="utf-8"
+        ) as source:
+            with open(
+                STORAGE_FILE,
+                "w",
+                encoding="utf-8"
+            ) as target:
+                target.write(source.read())
+else:
+    UPLOAD_FOLDER = os.path.join(BASE_DIR, "uploads")
+    STORAGE_FILE = os.path.join(BASE_DIR, "storage.json")
+
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 fs = FileSystemTree()
 
-with open(STORAGE_FILE, "r") as file:
+with open(STORAGE_FILE, "r", encoding="utf-8") as file:
     data = json.load(file)
 
 fs.load_dict(data)
