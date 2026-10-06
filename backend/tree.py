@@ -31,29 +31,28 @@ class FileSystemTree:
     def get_file_size(self, node):
         if node.node_type != "file":
             return 0
-
+    
         if node.stored_name is not None:
             import os
-            
+    
             upload_folder = os.environ.get(
-                "UPLOAD_FOLDER",
+                "FILE_EXPLORER_UPLOAD_FOLDER",
                 os.path.join(
                     os.path.dirname(os.path.abspath(__file__)),
                     "uploads"
                 )
             )
-
-
+    
             file_path = os.path.join(
                 upload_folder,
                 node.stored_name
             )
-
+    
             if os.path.exists(file_path):
                 return os.path.getsize(file_path)
-
+    
             return 0
-
+    
         return len(node.content.encode("utf-8"))
 
     def display_tree(self, node=None, level=0):
