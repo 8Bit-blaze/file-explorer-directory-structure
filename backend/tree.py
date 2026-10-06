@@ -34,13 +34,18 @@ class FileSystemTree:
 
         if node.stored_name is not None:
             import os
-
-            base_dir = os.path.dirname(os.path.abspath(__file__))
+            
+            upload_folder = os.environ.get(
+                "UPLOAD_FOLDER",
+                os.path.join(
+                    os.path.dirname(os.path.abspath(__file__)),
+                    "uploads"
+                )
+            )
 
 
             file_path = os.path.join(
-                base_dir,
-                "uploads",
+                upload_folder,
                 node.stored_name
             )
 
