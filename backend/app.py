@@ -34,6 +34,8 @@ else:
     STORAGE_FILE = os.path.join(BASE_DIR, "storage.json")
 
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+    
+os.environ["FILE_EXPLORER_UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 fs = FileSystemTree()
 
